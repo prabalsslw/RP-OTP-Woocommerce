@@ -1,6 +1,6 @@
 # Real Protection OTP & Woocommerce Alert
 
-RP is a SMS & Email based OTP service provider plugin. Also avialable woocommerce transactional alert.
+RP is an SMS & Email based OTP service provider plugin. Also available woocommerce transactional alert.
 # Features!
   - OTP SMS
   - OTP Email
