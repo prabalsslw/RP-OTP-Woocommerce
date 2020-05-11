@@ -61,4 +61,8 @@ Enable Woocommerce Alert` for Woocommerce transaction alert. [Img-4]
 
 ### License
 ----
-`GPL2`
+- `GPL2`
+### Contributor
+> Author: Prabal Mallick
+
+> [Support Email](mailto:prabalsslw@gmail.com)
