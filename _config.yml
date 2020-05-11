@@ -1,6 +1,7 @@
 title: Real Protection OTP & WooCommerce SMS Alert
 logo: /image/rp_logo.png
-description: Secure your login and get alert on woocommerce purchase 
+description: Secure your login with OTP SMS/EMAIL and get alert on woocommerce purchase. 
 show_downloads: true
+
 google_analytics:
 theme: jekyll-theme-minimal
