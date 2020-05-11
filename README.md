@@ -1,20 +1,23 @@
-# Real Protection OTP & Woocommerce Alert
+# Real Protection OTP & Woocommerce SMS/Email Alert
 
 RP is an SMS & Email based OTP service provider plugin. Also available woocommerce transactional alert.
-# Features!
+## Features!
   - OTP SMS
   - OTP Email
   - New user registration alert
   - Woocommerce transaction alert
   - Configurable custom API & Parameters
   - Dynamic variable.
+
 ### Prerequisites
   - Wordpress 5.*.*
   - WooCommerce 4.1.*
   - cURL php extension.
+
 ### Version
   - RP V1.0.0
   - Tested up to WooCommerce 4.1
+
 ### Download
 ```sh
 Using HTTPS 
