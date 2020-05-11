@@ -3,4 +3,4 @@ logo: /image/rp_logo.png
 show_downloads: true
 description: Secure your login with OTP SMS/EMAIL and get alert on woocommerce purchase. 
 google_analytics:
-theme: jekyll-theme-merlot
+theme: jekyll-theme-minimal
