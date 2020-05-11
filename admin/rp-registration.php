@@ -1,4 +1,11 @@
 <?php 
+	#------------------
+	# Customize registration form
+	#------------------
+
+	
+	######################### Add an extra field in reg form ##########################
+
 	add_action( 'register_form', 'rp_registration_form' );
 	
 	function rp_registration_form() {
@@ -13,6 +20,10 @@
 		<?php
 	}
 
+
+	
+	######################### Validate form field ##########################
+	
 	add_filter( 'registration_errors', 'rp_registration_errors', 10, 3 );
 
 	function rp_registration_errors( $errors, $sanitized_user_login, $user_email ) {
@@ -27,6 +38,10 @@
 
 		return $errors;
 	}
+
+
+
+	######################### Save data to meta data ##########################
 
 	add_action( 'user_register', 'rp_save_data' );
 

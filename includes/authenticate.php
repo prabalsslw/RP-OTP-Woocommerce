@@ -1,5 +1,8 @@
 <?php
-// Replaces WordPress' Pluggable wp_authenticate function
+
+######################### Replaces WordPress' Pluggable wp_authenticate function ##########################
+
+
 if ( !function_exists('wp_authenticate') ) :
   function wp_authenticate($username, $password) 
   {

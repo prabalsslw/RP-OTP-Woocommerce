@@ -16,7 +16,9 @@ defined( 'ABSPATH' ) or die(); // Protect from alien invasion
 define( 'RP_PATH', plugin_dir_path( __FILE__ ) );
 define( 'RP_URL', plugin_dir_url( __FILE__ ) );
 
-// Include required core files
+
+# Include required core files
+
 require_once( RP_PATH . 'includes/rewrite-rules.php' );
 require_once( RP_PATH . 'includes/init.php' );
 require_once( RP_PATH . 'includes/authenticate.php' );
@@ -26,10 +28,12 @@ require_once( RP_PATH . 'admin/rp-registration.php' );
 require_once( RP_PATH . 'templates/sms-alert.php' );
 
 
-// Create database table
+
+# Create database table
 register_activation_hook( __FILE__, 'rp_install' );
 
-// Validate login with OTP
+
+# Validate login with OTP
 add_filter( 'authenticate', 'rp_auth_login', 30, 3 );
 
 function rp_auth_login ( $user, $username, $password ) 
@@ -106,7 +110,8 @@ function rp_auth_login ( $user, $username, $password )
     }
 }
 
-// Display error message on login page
+
+# Display error message on login page
 function wprp_modify_html() {
     $rp_error = isset($_GET['rp_error']) ? $_GET['rp_error'] : '';
     if ( $rp_error != '' ) {
@@ -129,7 +134,8 @@ function wprp_modify_html() {
 }
 add_action( 'login_head', 'wprp_modify_html');
 
-// Load Plugin Admin CSS
+
+# Load Plugin Admin CSS
 function rp_load_custom_wp_admin_style() {
         wp_register_style( 'real-protection', RP_URL . 'admin/css/style.css', false, '1.0.0' );
         wp_enqueue_style( 'real-protection' );
@@ -140,7 +146,7 @@ function razorpayPluginLinks($links)
 {
     $pluginLinks = array(
                     'settings' => '<a href="'. esc_url(admin_url('admin.php?page=real-protection-otp-settings')) .'">Settings</a>',
-                    'docs'     => '<a href="https://github.com/prabalsslw/Real-Protection-OTP-WooCommerce-Alert/blob/master/README.md">Docs</a>',
+                    'docs'     => '<a href="https://prabalsslw.github.io/RP-OTP-Woocommerce/">Docs</a>',
                     'support'  => '<a href="mailto:prabalsslw@gmail.com">Support</a>'
                 );
 

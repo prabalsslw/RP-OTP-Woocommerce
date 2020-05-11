@@ -1,6 +1,7 @@
 <?php 
-
-// Create Plugin Admin Pages
+#---------------------
+# Add Plugin to Admin Pages
+#---------------------
 add_action('admin_menu', 'rp_create_menu_pages');
 
 function rp_create_menu_pages() {
@@ -33,7 +34,9 @@ function rp_create_menu_pages() {
 
 }
 
-// Real Protection Page Content
+
+# Real Protection Page Content
+
 function rp_menu_otp_display() {
 ?>
     <div class="wrap">
@@ -43,7 +46,9 @@ function rp_menu_otp_display() {
 <?php
 }
 
-// Real Protection Woocommerce Record
+
+# Real Protection Woocommerce Record
+
 function rp_woo_mnu_display() {
 ?>
     <div class="wrap">
@@ -53,7 +58,10 @@ function rp_woo_mnu_display() {
 <?php
 }
 
-// Settings Page Content
+
+
+# Settings Page Content
+
 function rp_menu_otp_settings() {
 ?>
     <div class="wrap">
@@ -72,12 +80,15 @@ function rp_menu_otp_settings() {
 <?php
 }
 
-// Initialize Settings
+
+# Initialize Settings
 function rp_initialize_settings() {
 
     if( false == get_option( 'rp_otp_setting' ) ) {
         add_option( 'rp_otp_setting' );
     }
+
+    # OTP Configuration Section
 
     add_settings_section(
         'otp_settings_section',
@@ -126,6 +137,8 @@ function rp_initialize_settings() {
         'otp_settings_section'
     );
 
+    # API Configuration Section
+
     add_settings_section(
         'api_settings_section',
         'API Configuration',
@@ -156,6 +169,8 @@ function rp_initialize_settings() {
         'rp_otp_setting',
         'api_settings_section'
     );
+
+    # Woocommerce Configuration Section
 
     add_settings_section(
         'woo_settings_section',
@@ -278,10 +293,11 @@ function rp_initialize_settings() {
 
 add_action('admin_init', 'rp_initialize_settings');
 
-// Settings Section Callback
+
+####################################### OTP Settings Section Callback ######################################
+
 
 function rp_otp_settings_callback() {
-    // echo '<p>OTP configuration page</p>';
     echo "<hr>";
 }
 
@@ -356,8 +372,11 @@ function rp_otp_text_callback() {
     echo $html;
 }
 
+
+####################################### API Settings Section Callback ######################################
+
+
 function rp_api_settings_callback() {
-    // echo '<p>OTP configuration page</p>';
     echo "<hr>";
 }
 
@@ -619,8 +638,9 @@ function rp_user_reg_templete_callback(){
 }
 
 
+############################################# Validate Fields ##############################################
 
-#Validation------
+
 function rp_sanitize_otp_settings( $input ) {
 
     $output = array();
@@ -798,5 +818,5 @@ function rp_sanitize_otp_settings( $input ) {
 }
 
 
-############################################## API CONFIG ##################################################
+############################################## END ##################################################
 

@@ -1,4 +1,11 @@
 <?php 
+	#-----------------
+	# Api requesting script.
+	#-----------------
+
+	
+############################### Process parameters for POST request ################################
+
 	function postParameter($string, $phone_number, $sms_text)
 	{
 	    $post_param = explode('&', $string);
@@ -28,6 +35,9 @@
 	    return $post_data;
 	}
 
+
+############################### Process parameters for GET request ################################
+
 	function getParameter($string, $phone_number, $sms_text)
 	{
 	    $post_param = explode('&', $string);
@@ -43,6 +53,9 @@
 	    return $param;
 	}
 
+
+################################# Process API For GET REQUEST ##################################
+
 	function callToGetAPI($apiurl, $peram)
 	{
 		$curl   = curl_init();
@@ -54,6 +67,10 @@
 
 		return $response;
 	}
+
+
+
+################################# Process API For POST REQUEST ##################################
 
 	function callToPostAPI($apiurl, $post_data = array())
 	{

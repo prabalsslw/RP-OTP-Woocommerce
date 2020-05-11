@@ -1,10 +1,13 @@
 <?php
-defined( 'ABSPATH' ) or die(); // Protect from alien invasion
+defined( 'ABSPATH' ) or die(); 
+
+# Protect from alien invasion
 
 global $rp_db_version;
 $rp_db_version = '1.0';
 
-// Setup Database Table
+# Setup Database Table
+
 function rp_install () {
     global $wpdb;
     global $rp_db_version;

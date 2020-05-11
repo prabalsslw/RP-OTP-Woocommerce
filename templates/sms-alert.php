@@ -1,4 +1,9 @@
 <?php 
+	#-------------------------
+	# Register & Trigger Hook For Woocommerce alert
+	#-------------------------
+
+
 	$rp_settings = get_option( 'rp_otp_setting' );
 
 	if(isset($rp_settings['otp_woo_alert']) && $rp_settings['otp_woo_alert'] != "" && isset($rp_settings['otp_enable']) && $rp_settings['otp_enable'] != "")
@@ -46,7 +51,7 @@
 		}
 	}
 
-	// exit;
+
 	function rp_alert_registration($user_id){ 
 		$rp_settings = get_option( 'rp_otp_setting' );
 		$all_meta_for_user 	= get_user_meta( $user_id );

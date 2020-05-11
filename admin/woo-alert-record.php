@@ -1,4 +1,9 @@
 <?php
+#-------------------
+# Woocommerce alert history
+#-------------------
+
+
 global $wpdb;
 $table_name = $wpdb->prefix . "real_protection_woo";
 $record = $wpdb->get_results(

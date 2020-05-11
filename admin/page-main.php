@@ -1,4 +1,9 @@
 <?php
+#-------------
+# Login attempt & OTP sending history.
+#-------------
+
+
 global $wpdb;
 $table_name = $wpdb->prefix . "real_protection";
 $logins = $wpdb->get_results(
