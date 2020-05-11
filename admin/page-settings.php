@@ -88,7 +88,7 @@ function rp_initialize_settings() {
 
     add_settings_field(
         'email_otp_disable',
-        'Enable SMS OTP',
+        'Enable SMS OTP/Alert',
         'rp_otp_enable_callback',
         'rp_otp_setting',
         'otp_settings_section'
@@ -294,7 +294,7 @@ function rp_otp_enable_callback() {
     }
 
     $html = '<input type="checkbox" id="otp_enable" name="rp_otp_setting[otp_enable]" value="1"' . checked( 1, $otp_enable, false ) . '/>';
-    $html .= '<label for="checkbox_example">Check to enable login SMS OTP.</label>';
+    $html .= '<label for="checkbox_example">Check to enable login OTP/Alert SMS.</label>';
 
     echo $html;
 }
