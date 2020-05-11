@@ -10,8 +10,8 @@ RP is an SMS & Email based OTP service provider plugin. Also available woocommer
   - Dynamic variable.
 
 ### Prerequisites
-  - Wordpress 5.*.*
-  - WooCommerce 4.1.*
+  - Wordpress 5.x.x
+  - WooCommerce 4.1.x
   - cURL php extension.
 
 ### Version
@@ -32,6 +32,9 @@ Follow the installation steps.
 - Step 3: Enable OTP checkbox for OTP & SMS Alert. `OTP SMS Text` must contain `{{OTP}}` dynamic variable. [Img-2]
 - Step 4: Both GET & POST API can be configurable, use API Endpoint, pass the API parameter with dynamic variable. Fixed dynamic variables: `{{phone_number}}, {{unique_id}}, {{sms_text}}`
 [Img-3]
+- Step 5: In the `Woocommerce Alert Configuration` part must enable `
+Enable Woocommerce Alert` for Woocommerce transaction alert. [Img-4]
+- Step 6: Enable your required Hook for transactional alert. [Img-4]
 
 ### Image Reference
 [Img-1] :
@@ -40,7 +43,8 @@ Follow the installation steps.
 ![RP Plugin](image/setuppage.jpg)
 [Img-3] :
 ![RP Plugin](image/setuppage2.jpg)
-
+[Img-4] :
+![RP Plugin](image/Setuppage3.jpg)
 License
 ----
 `GPL2`
