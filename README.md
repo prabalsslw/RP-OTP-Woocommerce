@@ -13,3 +13,5 @@ RP is an SMS & Email based OTP service provider plugin. Also available woocommer
 # Version
   - RP V1.0.0
   - Tested upto WooCommerce 4.1
+
+![RP Plugin](image/Plugin.jpg)

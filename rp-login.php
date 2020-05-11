@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Real Protection
+ * Plugin Name: Real Protection OTP
  * Plugin URI: https://prabalsslw.github.io/Real-Protection-OTP-WooCommerce-Alert/
  * Description: Real Protection, 2 step Verification for WordPress login and woocommerce transaction alert.
  * Version: 1.0.0

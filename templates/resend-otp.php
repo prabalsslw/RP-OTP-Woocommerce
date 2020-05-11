@@ -1,7 +1,4 @@
 <?php
-
-// echo "<pre>";
-// print_r($_SERVER);
 	global $wpdb;
 	$table_name = $wpdb->prefix . "real_protection";
 	$rp_settings = get_option( 'rp_otp_setting' );

@@ -7,9 +7,6 @@ $auth_token = sanitize_key($wp->query_vars['rp_auth']);
 $table_name = $wpdb->prefix . "real_protection";
 $rp_settings = get_option( 'rp_otp_setting' );
 
-// echo "<pre>";
-// print_r($rp_settings);
-
 
 if ( !isset( $rp_settings['timeout'] ) || '' == $rp_settings['timeout'] ) {
     $rp_settings['timeout'] = 5;
