@@ -35,6 +35,11 @@ Follow the installation steps.
 - Step 5: In the `Woocommerce Alert Configuration` part must enable `
 Enable Woocommerce Alert` for Woocommerce transaction alert. [Img-4]
 - Step 6: Enable your required Hook for transactional alert. [Img-4]
+- Step 7: You can change your `Woocommerce SMS Alert Templete`. Fixed dynamic variables: `{{name}}, {{status}}, {{amount}}, {{currency}}, {{order_id}}`. [Img-5]
+- Step 8: You can change your `User Registration Alert Templete`. Fixed dynamic variables: `{{name}}`. [Img-5]
+- Step 9: After successfully integrating the plugin you can see the reflection in the login and registration page. [Img-6]
+- Step 10: Plugin will add an extra field(Phone Number) in the registration form. [Img-7]
+- Step 11: Admin can check OTP & Alert SMS record from the admin panel . [Img-8]
 
 ### Image Reference
 [Img-1] :
@@ -45,6 +50,15 @@ Enable Woocommerce Alert` for Woocommerce transaction alert. [Img-4]
 ![RP Plugin](image/setuppage2.jpg)
 [Img-4] :
 ![RP Plugin](image/Setuppage3.jpg)
-License
+[Img-5] :
+![RP Plugin](image/Setupage4.jpg)
+[Img-6] :
+![RP Plugin](image/Login.jpg)
+[Img-7] :
+![RP Plugin](image/Signup.jpg)
+[Img-7] :
+![RP Plugin](image/History.jpg)
+
+### License
 ----
 `GPL2`
