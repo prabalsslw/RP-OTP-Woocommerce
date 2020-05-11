@@ -19,6 +19,7 @@ $logins = $wpdb->get_results(
                 <th scope="col" class="manage-column column-date" style="">Login Time</th>
                 <th scope="col" class="manage-column column-date" style=""><span>IP Address</span></th>
                 <th scope="col" class="manage-column column-text" style=""><span>Login Status</span></th>
+                <th scope="col" class="manage-column column-text" style=""><span>OTP Sent</span></th>
                 <th scope="col" class="manage-column column-text" style=""><span>SMS Reference Code</span></th>
             </tr>
         </thead>
@@ -29,6 +30,7 @@ $logins = $wpdb->get_results(
                 <th scope="col" class="manage-column column-date" style="">Login Time</th>
                 <th scope="col" class="manage-column column-text" style=""><span>IP Address</span></th>
                 <th scope="col" class="manage-column column-text" style=""><span>Login Status</span></th>
+                <th scope="col" class="manage-column column-text" style=""><span>OTP Sent</span></th>
                 <th scope="col" class="manage-column column-text" style=""><span>SMS Reference Code</span></th>
             </tr>
         </tfoot>
@@ -60,6 +62,7 @@ $logins = $wpdb->get_results(
                 <td><?php echo $login->login_time; ?></td>
                 <td><?php echo $login->user_ip; ?></td>
                 <td><?php echo $login_status; ?></td>
+                <td><?php echo $login->otp_sent_limit; ?></td>
                 <td><?php echo $login->sms_ref_id; ?></td>
             </tr>
             <?php } ?>
