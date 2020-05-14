@@ -23,7 +23,7 @@
 	function rp_parse_request( &$wp )
 	{
 	    if ( array_key_exists( 'rp_api', $wp->query_vars ) ) {
-	        require_once( RP_PATH . 'templates/verify-login.php');
+	        require_once( RPWP_PATH . 'templates/verify-login.php');
 	        exit();
 	    }
 	    return;
@@ -52,7 +52,7 @@
 	function rp_re_parse_request( &$wp )
 	{
 	    if ( array_key_exists( 'rp_reo_api', $wp->query_vars ) ) {
-	        require_once( RP_PATH . 'templates/resend-otp.php');
+	        require_once( RPWP_PATH . 'templates/resend-otp.php');
 	        exit();
 	    }
 	    return;

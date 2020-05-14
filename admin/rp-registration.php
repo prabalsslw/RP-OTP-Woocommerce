@@ -46,8 +46,8 @@
 	add_action( 'user_register', 'rp_save_data' );
 
 	function rp_save_data( $user_id ) {
-		if ( ! empty( $_POST['rp_phone_number'] ) ) {
-			update_user_meta( $user_id, 'rp_phone_number', trim( $_POST['rp_phone_number'] ) ) ;		
+		if ( ! empty( is_numeric($_POST['rp_phone_number'] )) ) {
+			update_user_meta( $user_id, 'rp_phone_number', trim( is_numeric($_POST['rp_phone_number']) ) ) ;		
 		}
 	}
 ?>

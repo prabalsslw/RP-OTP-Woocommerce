@@ -13,19 +13,19 @@
 
 defined( 'ABSPATH' ) or die(); // Protect from alien invasion
 
-define( 'RP_PATH', plugin_dir_path( __FILE__ ) );
-define( 'RP_URL', plugin_dir_url( __FILE__ ) );
+define( 'RPWP_PATH', plugin_dir_path( __FILE__ ) );
+define( 'RPWP_URL', plugin_dir_url( __FILE__ ) );
 
 
 # Include required core files
 
-require_once( RP_PATH . 'includes/rewrite-rules.php' );
-require_once( RP_PATH . 'includes/init.php' );
-require_once( RP_PATH . 'includes/authenticate.php' );
-require_once( RP_PATH . 'admin/sms-api.php' );
-require_once( RP_PATH . 'admin/page-settings.php' );
-require_once( RP_PATH . 'admin/rp-registration.php' );
-require_once( RP_PATH . 'templates/sms-alert.php' );
+require_once( RPWP_PATH . 'includes/rewrite-rules.php' );
+require_once( RPWP_PATH . 'includes/init.php' );
+require_once( RPWP_PATH . 'includes/authenticate.php' );
+require_once( RPWP_PATH . 'admin/sms-api.php' );
+require_once( RPWP_PATH . 'admin/page-settings.php' );
+require_once( RPWP_PATH . 'admin/rp-registration.php' );
+require_once( RPWP_PATH . 'templates/sms-alert.php' );
 
 
 
@@ -113,7 +113,7 @@ function rp_auth_login ( $user, $username, $password )
 
 # Display error message on login page
 function wprp_modify_html() {
-    $rp_error = isset($_GET['rp_error']) ? $_GET['rp_error'] : '';
+    $rp_error = isset($_GET['rp_error']) ? esc_html($_GET['rp_error']) : '';
     if ( $rp_error != '' ) {
         $login_error = get_query_var( 'rp_error' );
         switch ( $rp_error ) {
@@ -137,7 +137,7 @@ add_action( 'login_head', 'wprp_modify_html');
 
 # Load Plugin Admin CSS
 function rp_load_custom_wp_admin_style() {
-        wp_register_style( 'real-protection', RP_URL . 'admin/css/style.css', false, '1.0.0' );
+        wp_register_style( 'real-protection', RPWP_URL . 'admin/css/style.css', false, '1.0.0' );
         wp_enqueue_style( 'real-protection' );
 }
 add_action( 'admin_enqueue_scripts', 'rp_load_custom_wp_admin_style' );

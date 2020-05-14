@@ -41,7 +41,7 @@ function rp_menu_otp_display() {
 ?>
     <div class="wrap">
         <h2>Real Protection</h2>
-        <?php include_once( RP_PATH . 'admin/page-main.php' ); ?>
+        <?php include_once( RPWP_PATH . 'admin/page-main.php' ); ?>
     </div>
 <?php
 }
@@ -53,7 +53,7 @@ function rp_woo_mnu_display() {
 ?>
     <div class="wrap">
         <h2>Real Protection Transactional SMS</h2>
-        <?php include_once( RP_PATH . 'admin/woo-alert-record.php' ); ?>
+        <?php include_once( RPWP_PATH . 'admin/woo-alert-record.php' ); ?>
     </div>
 <?php
 }
@@ -649,7 +649,7 @@ function rp_sanitize_otp_settings( $input ) {
         if ( is_numeric( $input['timeout'] ) ) {
             $output['timeout'] = strip_tags( stripslashes( $input['timeout'] ) );
         } else {
-            add_settings_error( 'rp_otp_setting', 'timeout-data-type', "OTP Timeout must be numerical" );
+            add_settings_error( 'rp_otp_setting', 'timeout-data-type', esc_html__( 'OTP Timeout must be numerical', 'rp_slug'));
         }
     }
 
@@ -657,7 +657,7 @@ function rp_sanitize_otp_settings( $input ) {
         if ( is_email( $input['from_email'] ) ) {
             $output['from_email'] = sanitize_email( $input['from_email'] );
         } else {
-            add_settings_error( 'rp_otp_setting', 'email-error', "From email address not valid" );
+            add_settings_error( 'rp_otp_setting', 'email-error', esc_html__( 'From email address not valid', 'rp_slug'));
         }
     }
 
@@ -665,7 +665,7 @@ function rp_sanitize_otp_settings( $input ) {
         if (  $input['otp_enable']  ) {
             $output['otp_enable'] =  $input['otp_enable'] ;
         } else {
-            add_settings_error( 'rp_otp_setting', 'otp-error', "Enable to Login SMS OTP" );
+            add_settings_error( 'rp_otp_setting', 'otp-error', esc_html__( 'Enable to Login SMS OTP', 'rp_slug'));
         }
     }
 
@@ -673,15 +673,15 @@ function rp_sanitize_otp_settings( $input ) {
         if (  $input['email_otp_disable']  ) {
             $output['email_otp_disable'] =  $input['email_otp_disable'] ;
         } else {
-            add_settings_error( 'rp_otp_setting', 'otp-error', "Disable Email OTP" );
+            add_settings_error( 'rp_otp_setting', 'otp-error', esc_html__( 'Disable Email OTP', 'rp_slug'));
         }
     }
 
     if ( isset( $input['otp_text'] ) ) {
         if (  $input['otp_text'] != "" ) {
-            $output['otp_text'] =  $input['otp_text'] ;
+            $output['otp_text'] =  sanitize_textarea_field($input['otp_text']) ;
         } else {
-            add_settings_error( 'rp_otp_setting', 'otptxt-error', "Please enter dynamic variable {OTP}." );
+            add_settings_error( 'rp_otp_setting', 'otptxt-error', esc_html__( 'Please enter dynamic variable {OTP}.', 'rp_slug'));
         }
     }
 
@@ -689,23 +689,23 @@ function rp_sanitize_otp_settings( $input ) {
         if (  $input['get_post']  ) {
             $output['get_post'] =  $input['get_post'] ;
         } else {
-            add_settings_error( 'rp_otp_setting', 'getpost-error', "Enable for POST Request" );
+            add_settings_error( 'rp_otp_setting', 'getpost-error', esc_html__( 'Enable for POST Request', 'rp_slug') );
         }
     }
 
     if ( isset( $input['api_url'] ) ) {
         if (  $input['api_url'] != "" ) {
-            $output['api_url'] =  $input['api_url'] ;
+            $output['api_url'] =  sanitize_text_field($input['api_url']) ;
         } else {
-            add_settings_error( 'rp_otp_setting', 'api-error', "Please enter API Endpoint URL" );
+            add_settings_error( 'rp_otp_setting', 'api-error', esc_html__( 'Please enter API Endpoint URL', 'rp_slug'));
         }
     }
 
     if ( isset( $input['api_peram'] ) ) {
         if (  $input['api_peram'] != "" ) {
-            $output['api_peram'] =  $input['api_peram'] ;
+            $output['api_peram'] =  sanitize_textarea_field($input['api_peram']) ;
         } else {
-            add_settings_error( 'rp_otp_setting', 'otptxt-error', "Please enter API Parameters" );
+            add_settings_error( 'rp_otp_setting', 'otptxt-error', esc_html__( 'Please enter API Parameters', 'rp_slug') );
         }
     }
 
@@ -713,7 +713,7 @@ function rp_sanitize_otp_settings( $input ) {
         if (  $input['otp_woo_alert']  ) {
             $output['otp_woo_alert'] =  $input['otp_woo_alert'] ;
         } else {
-            add_settings_error( 'rp_otp_setting', 'otp_woo_alert-error', "Enable for woocommerce status changing alert" );
+            add_settings_error( 'rp_otp_setting', 'otp_woo_alert-error', esc_html__( 'Enable for woocommerce status changing alert', 'rp_slug'));
         }
     }
 
@@ -721,7 +721,7 @@ function rp_sanitize_otp_settings( $input ) {
         if (  $input['woo_pending_alert']  ) {
             $output['woo_pending_alert'] =  $input['woo_pending_alert'] ;
         } else {
-            add_settings_error( 'rp_otp_setting', 'woo_pending_alert-error', "Enable for order pending alert" );
+            add_settings_error( 'rp_otp_setting', 'woo_pending_alert-error', esc_html__( 'Enable for order pending alert', 'rp_slug'));
         }
     }
 
@@ -729,7 +729,7 @@ function rp_sanitize_otp_settings( $input ) {
         if (  $input['woo_processing_alert']  ) {
             $output['woo_processing_alert'] =  $input['woo_processing_alert'] ;
         } else {
-            add_settings_error( 'rp_otp_setting', 'woo_processing_alert-error', "Enable for order processing alert" );
+            add_settings_error( 'rp_otp_setting', 'woo_processing_alert-error', esc_html__( 'Enable for order processing alert', 'rp_slug'));
         }
     }
 
@@ -737,7 +737,7 @@ function rp_sanitize_otp_settings( $input ) {
         if (  $input['woo_hold_alert']  ) {
             $output['woo_hold_alert'] =  $input['woo_hold_alert'] ;
         } else {
-            add_settings_error( 'rp_otp_setting', 'woo_hold_alert-error', "Enable for order on hold alert" );
+            add_settings_error( 'rp_otp_setting', 'woo_hold_alert-error', esc_html__( 'Enable for order on hold alert', 'rp_slug'));
         }
     }
 
@@ -745,7 +745,7 @@ function rp_sanitize_otp_settings( $input ) {
         if (  $input['woo_fail_alert']  ) {
             $output['woo_fail_alert'] =  $input['woo_fail_alert'] ;
         } else {
-            add_settings_error( 'rp_otp_setting', 'woo_fail_alert-error', "Enable for order failed alert" );
+            add_settings_error( 'rp_otp_setting', 'woo_fail_alert-error', esc_html__( 'Enable for order failed alert', 'rp_slug'));
         }
     }
 
@@ -753,7 +753,7 @@ function rp_sanitize_otp_settings( $input ) {
         if (  $input['woo_cancel_alert']  ) {
             $output['woo_cancel_alert'] =  $input['woo_cancel_alert'] ;
         } else {
-            add_settings_error( 'rp_otp_setting', 'woo_cancel_alert-error', "Enable for order cancel alert" );
+            add_settings_error( 'rp_otp_setting', 'woo_cancel_alert-error', esc_html__( 'Enable for order cancel alert', 'rp_slug'));
         }
     }
 
@@ -761,7 +761,7 @@ function rp_sanitize_otp_settings( $input ) {
         if (  $input['woo_complete_alert']  ) {
             $output['woo_complete_alert'] =  $input['woo_complete_alert'] ;
         } else {
-            add_settings_error( 'rp_otp_setting', 'woo_complete_alert-error', "Enable for order clomplete alert" );
+            add_settings_error( 'rp_otp_setting', 'woo_complete_alert-error', esc_html__( 'Enable for order clomplete alert', 'rp_slug'));
         }
     }
 
@@ -769,7 +769,7 @@ function rp_sanitize_otp_settings( $input ) {
         if (  $input['woo_refund_alert']  ) {
             $output['woo_refund_alert'] =  $input['woo_refund_alert'] ;
         } else {
-            add_settings_error( 'rp_otp_setting', 'woo_refund_alert-error', "Enable for order refund" );
+            add_settings_error( 'rp_otp_setting', 'woo_refund_alert-error', esc_html__( 'Enable for order refund', 'rp_slug'));
         }
     }
 
@@ -777,7 +777,7 @@ function rp_sanitize_otp_settings( $input ) {
         if (  $input['woo_partially_alert']  ) {
             $output['woo_partially_alert'] =  $input['woo_partially_alert'] ;
         } else {
-            add_settings_error( 'rp_otp_setting', 'woo_partially_alert-error', "Enable for order partially alert" );
+            add_settings_error( 'rp_otp_setting', 'woo_partially_alert-error', esc_html__( 'Enable for order partially alert', 'rp_slug') );
         }
     }
 
@@ -785,7 +785,7 @@ function rp_sanitize_otp_settings( $input ) {
         if (  $input['woo_shipped_alert']  ) {
             $output['woo_shipped_alert'] =  $input['woo_shipped_alert'] ;
         } else {
-            add_settings_error( 'rp_otp_setting', 'woo_shipped_alert-error', "Enable for order shipment alert" );
+            add_settings_error( 'rp_otp_setting', 'woo_shipped_alert-error', esc_html__( 'Enable for order shipment alert', 'rp_slug'));
         }
     }
 
@@ -793,23 +793,23 @@ function rp_sanitize_otp_settings( $input ) {
         if (  $input['user_reg_alert']  ) {
             $output['user_reg_alert'] =  $input['user_reg_alert'] ;
         } else {
-            add_settings_error( 'rp_otp_setting', 'user_reg_alert-error', "Enable for user registration alert" );
+            add_settings_error( 'rp_otp_setting', 'user_reg_alert-error', esc_html__( 'Enable for user registration alert', 'rp_slug'));
         }
     }
 
     if ( isset( $input['order_sms_templete'] ) ) {
         if (  $input['order_sms_templete']  ) {
-            $output['order_sms_templete'] =  $input['order_sms_templete'] ;
+            $output['order_sms_templete'] =  sanitize_textarea_field($input['order_sms_templete']) ;
         } else {
-            add_settings_error( 'rp_otp_setting', 'order_sms_templete-error', "Enter your woocommerce alert sms templete" );
+            add_settings_error( 'rp_otp_setting', 'order_sms_templete-error', esc_html__( 'Enter your woocommerce alert sms templete', 'rp_slug'));
         }
     }
 
     if ( isset( $input['user_reg_templete'] ) ) {
         if (  $input['user_reg_templete']  ) {
-            $output['user_reg_templete'] =  $input['user_reg_templete'] ;
+            $output['user_reg_templete'] =  sanitize_textarea_field($input['user_reg_templete']) ;
         } else {
-            add_settings_error( 'rp_otp_setting', 'user_reg_templete-error', "Enter your user registration sms templete" );
+            add_settings_error( 'rp_otp_setting', 'user_reg_templete-error', esc_html__( 'Enter your user registration sms templete', 'rp_slug'));
         }
     }
 
