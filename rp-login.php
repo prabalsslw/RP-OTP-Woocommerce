@@ -112,7 +112,15 @@ function rp_auth_login ( $user, $username, $password )
 
 # Display error message on login page
 function wprp_modify_html() {
-    $rp_error = isset($_GET['rp_error']) ? esc_html($_GET['rp_error']) : '';
+    // $rp_error = isset($_GET['rp_error']) ? esc_html__($_GET['rp_error']) : '';
+    if (rp_error_code_sanitize($_GET['rp_error'])) {
+        $rp_error = esc_html__($_GET['rp_error']);
+    }
+    else
+    {
+        $rp_error = '';
+    }
+
     if ( $rp_error != '' ) {
         $login_error = get_query_var( 'rp_error' );
         switch ( $rp_error ) {
@@ -141,7 +149,7 @@ function rp_load_custom_wp_admin_style() {
 }
 add_action( 'admin_enqueue_scripts', 'rp_load_custom_wp_admin_style' );
 
-function razorpayPluginLinks($links)
+function realProPluginLinks($links)
 {
     $pluginLinks = array(
                     'settings' => '<a href="'. esc_url(admin_url('admin.php?page=real-protection-otp-settings')) .'">Settings</a>',
@@ -155,4 +163,15 @@ function razorpayPluginLinks($links)
 }
 
 $plugin = plugin_basename(__FILE__); 
-add_filter("plugin_action_links_$plugin", 'razorpayPluginLinks' );
+add_filter("plugin_action_links_$plugin", 'realProPluginLinks' );
+
+
+function rp_error_code_sanitize($code)
+{
+    if (is_numeric($code)) {
+        return true;
+    }
+    else{
+        return false;
+    }
+}

@@ -695,7 +695,7 @@ function rp_sanitize_otp_settings( $input ) {
 
     if ( isset( $input['api_url'] ) ) {
         if (  $input['api_url'] != "" ) {
-            $output['api_url'] =  sanitize_text_field($input['api_url']) ;
+            $output['api_url'] =  esc_url($input['api_url']) ;
         } else {
             add_settings_error( 'rp_otp_setting', 'api-error', esc_html__( 'Please enter API Endpoint URL', 'rp_slug'));
         }
